@@ -3,6 +3,7 @@
     <wc-waterfall :gap="20" :cols="2">
       <div
         class="card boder rounded-lg shadow-lg"
+        v-slide-in
         v-for="(item, index) in items"
         :key="item.title"
       >
