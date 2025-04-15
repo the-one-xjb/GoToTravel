@@ -24,5 +24,12 @@ export default defineConfig({
       // '@': fileURLToPath(new URL('./src', import.meta.url))
       '@': path.resolve(__dirname, 'src')
     }
+  },
+  css: {
+    preprocessorOptions: {
+     css:{
+      charset: false, // 解决css引入@import时，控制台报错的问题
+     } 
+    }
   }
 })

@@ -16,7 +16,6 @@ declare module 'vue' {
     TaBar: typeof import('./src/components/Home/TaBar.vue')['default']
     UserQuery: typeof import('./src/components/AI/UserQuery.vue')['default']
     VanBackTop: typeof import('vant/es')['BackTop']
-    VanButton: typeof import('vant/es')['Button']
     VanCell: typeof import('vant/es')['Cell']
     VanIcon: typeof import('vant/es')['Icon']
     VanImage: typeof import('vant/es')['Image']

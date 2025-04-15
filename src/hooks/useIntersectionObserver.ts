@@ -1,7 +1,7 @@
 const options = {
     root: null, // 默认为视窗
     rootMargin: '0px', // 在计算交叉度时，扩大或缩小root的边界
-    threshold: 0 // 当目标元素10%的部分进入视窗时触发回调
+    threshold: 0.1 // 当目标元素10%的部分进入视窗时触发回调
 };
 // export function useIntersectionObserver;
 const observer = createIntersectionObserver();
