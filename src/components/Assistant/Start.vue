@@ -2,7 +2,7 @@
     <div class="start">
       <div class="welcome">欢迎使用AI小痕</div>
       <div class="title">
-        <h1 data-text="TourTrace">TourTrace</h1>
+        <h1 data-text="GoToTravel">GoToTravel</h1>
       </div>
     </div>
   </template>
