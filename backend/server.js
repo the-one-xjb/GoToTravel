@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const Koa = require('koa');
 const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
@@ -5,10 +7,10 @@ const axios = require('axios');
 
 const app = new Koa();
 const router = new Router();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || process.env.PORT || 3000;
 
-// Coze configuration - prefer environment variables
-const COZE_URL = 'https://api.coze.cn/open_api/v2/chat';
+// Coze configuration - read from .env (or environment variables). Fallbacks kept for safety.
+const COZE_URL = process.env.COZE_URL || 'https://api.coze.cn/open_api/v2/chat';
 const API_KEY = process.env.COZE_API_KEY || 'pat_cTfedNkJoUs8nYc4oYZFYNm1ZLXMxQUgNNbBiOvG1BfGcBCWSPAyvjyGyX73XsgG';
 const BOT_ID = process.env.COZE_BOT_ID || '7398905353180184614';
 
