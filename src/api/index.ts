@@ -1,39 +1,18 @@
 import axios from 'axios';
 
-const url = 'https://api.coze.cn/open_api/v2/chat';
-const apiKey = 'pat_cTfedNkJoUs8nYc4oYZFYNm1ZLXMxQUgNNbBiOvG1BfGcBCWSPAyvjyGyX73XsgG';
-const botId = '7398905353180184614';
-
-import type { FetchDataRequest } from '@/types/cozeConfig';
+// Backend URL - can be overridden by Vite env variable VITE_BACKEND_URL
+const backendUrl = (import.meta as any).env?.VITE_BACKEND_URL || 'http://localhost:3000';
 
 async function getCozeData(content: string): Promise<any> {
-    const headers = {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-    };
-
-    const data: FetchDataRequest = {
-        "bot_id": botId,
-        "conversation_id": "123456",
-        "user": "user_1",
-        "query": content,
-        "stream": false,
-        "chat_history": [
-            { "role": "user" },
-            { "role": "assistant", "type": "answer" }
-        ]
-    };
-
     try {
-        const response: any = await axios.post(url, data, { headers });
-
-        console.log(response);
-
-        return response;
-
+        // POST a minimal payload to the backend which will proxy to Coze
+        const response = await axios.post(`${backendUrl}/api/coze`, { content });
+        // return the data from backend (which is the Coze response body)
+        return response.data;
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error calling backend /api/coze:', error);
         throw error;
     }
 }
-export default getCozeData
+
+export default getCozeData;

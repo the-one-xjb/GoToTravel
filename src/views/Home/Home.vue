@@ -13,7 +13,7 @@
         class="title font-bold text-gray-900
         text-lg w-[6rem] text-center font-serif mr-5 bg-gray-200 rounded-full bg-opacity-50" 
       >
-        旅痕TourTrace
+        旅痕GotoTravel
       </div>
       <van-search
         v-model="searchField"
